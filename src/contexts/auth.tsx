@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import { AsyncStorage } from 'react-native';
 import * as auth from '../services/auth';
 
@@ -49,6 +49,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       setUser(null);
     });
   }
+
   return (
     <AuthContext.Provider
       value={{ signed: !!user, user, loading, signIn, signOut }}
@@ -58,4 +59,10 @@ export const AuthProvider: React.FC = ({ children }) => {
   );
 };
 
-export default AuthContext;
+// export default AuthContext;
+
+export function useAuth() {
+  const context = useContext(AuthContext);
+
+  return context;
+}
