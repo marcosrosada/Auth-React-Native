@@ -1,10 +1,27 @@
-import React from 'react';
-import { View, Button } from 'react-native';
+import React, { useContext } from 'react';
+import { View, Button, StyleSheet } from 'react-native';
 
-const SignIn: React.FC = () => (
-  <View>
-    <Button title="Sign In" onPress={() => {}} />
-  </View>
-);
+import AuthContext from '../../contexts/auth';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+});
+const SignIn: React.FC = () => {
+  const { signed, user, signIn } = useContext(AuthContext);
+
+  async function handleSignIn() {
+    console.log(user);
+    signIn();
+    console.log(signed);
+  }
+  return (
+    <View style={styles.container}>
+      <Button title="Sign In" onPress={handleSignIn} />
+    </View>
+  );
+};
 
 export default SignIn;
