@@ -13,9 +13,7 @@ const SignIn: React.FC = () => {
   const { signed, user, signIn } = useContext(AuthContext);
 
   async function handleSignIn() {
-    console.log(user);
     signIn();
-    console.log(signed);
   }
   return (
     <View style={styles.container}>
