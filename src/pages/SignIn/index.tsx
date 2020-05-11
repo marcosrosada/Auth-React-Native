@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
 const SignIn: React.FC = () => {
   const { signed, user, signIn } = useContext(AuthContext);
 
